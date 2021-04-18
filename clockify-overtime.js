@@ -31,7 +31,7 @@
 
     // because of ajax, we need to wait before we can access the dom element
     waitFor('.cl-reports-summary-table-col-2-1').then(([_]) => {
-        const displayOvertimeBtn = htmlToElement(`<div class="cl-pl-0 cl-d-flex cl-align-items-center cl-mr-2"><button class="cl-btn-primary" style="padding: 0.25em">Überstunden Berechnen</button></div>`)
+        const displayOvertimeBtn = htmlToElement(`<div class="cl-pl-0 cl-d-flex cl-align-items-center cl-mr-2"><button class="cl-btn-primary" style="padding: 0.25em">Calculate Overtime</button></div>`)
         displayOvertimeBtn.addEventListener("click", displayOvertime)
         document.querySelector("summary-group-header.cl-card-header > div > div").appendChild(displayOvertimeBtn)
     })
@@ -60,6 +60,6 @@ function displayOvertime() {
     const overtimeHours = Math.floor(overtimeInMinutes / 60)
     const overtimeMinutes = overtimeInMinutes - overtimeHours * 60
 
-    const overtimeNode = `<div class="cl-pl-0 cl-d-flex cl-align-items-center"><span class="cl-small cl-text-gray-9 cl-mr-3">Überstunden: ${overtimeHours} Stunden ${overtimeMinutes} Minuten </span></div>`
+    const overtimeNode = `<div class="cl-pl-0 cl-d-flex cl-align-items-center"><span class="cl-small cl-text-gray-9 cl-mr-3">Overtime: ${overtimeHours} Hours ${overtimeMinutes} Minutes </span></div>`
     document.querySelector("summary-group-header.cl-card-header > div > div").appendChild(htmlToElement(overtimeNode))
 }
